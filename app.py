@@ -27,8 +27,7 @@ def start_nova():
             if user_input.lower() in ["exit", "quit", "නතර කරන්න"]:
                 print("Nova: සුබ දවසක් හසිත්! මම පසුව හමුවෙන්නම්.")
                 break
-            
-            response = chat_session.send_message(user_input)
+          
             print(f"Nova: {response.text}")
             
         except Exception as e:
