@@ -1,8 +1,7 @@
 import google.generativeai as genai
 
-# ඔබ ලබාදුන් API Key එක (මෙය රහසිගතව තබාගන්න)
-API_KEY = "AIzaSyCt5wxykzlAWkz6NeRn5K--4bBKz6osrbY"
-
+# ඔබ ලබාදුන් API Key එක (මෙය රහසිගතව තබා ගන්න)
+API_KEY = st.secrets["GEMINI_API_KEY"]
 genai.configure(api_key=API_KEY)
 
 # Nova ගේ පෞරුෂය සහ නිර්මාණකරු පිළිබඳ තොරතුරු සැකසීම
