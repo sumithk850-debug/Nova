@@ -1,156 +1,128 @@
 import streamlit as st
 
-# --- PAGE CONFIG ---
+# --- Page Config ---
 st.set_page_config(
-    page_title="Alpha Studio & Shop",
-    page_icon="🎬",
+    page_title="Alpha Studio",
+    page_icon="⚡",
     layout="wide"
 )
 
-# --- CSS ---
+# --- Custom CSS (Futuristic UI) ---
 st.markdown("""
 <style>
 body {
-    margin:0;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
 }
 
-/* HERO SECTION */
-.hero {
-    position: relative;
-    height: 500px;
-    background-image: url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32");
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
+.title {
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    margin-top: 20px;
 }
 
-.hero-overlay {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
-    border-radius: 20px;
+.subtitle {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 40px;
+    color: #ccc;
 }
 
-.hero-text {
-    position:absolute;
-    top:50%;
-    left:50px;
-    transform:translateY(-50%);
-    color:white;
-}
-
-.hero-text h1 {
-    font-size:50px;
-    margin-bottom:10px;
-}
-
-.btn {
-    padding:10px 20px;
-    background:#ff6600;
-    color:white;
-    border-radius:5px;
-    text-decoration:none;
-    margin-right:10px;
-}
-
-/* CARDS */
 .card {
-    background:#111;
-    border-radius:15px;
-    overflow:hidden;
-    transition:0.3s;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover {
-    transform:scale(1.05);
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0,255,255,0.6);
+    cursor: pointer;
 }
 
-.card img {
-    width:100%;
-}
-
-.card-body {
-    padding:15px;
-    color:white;
-}
-
-.section-title {
-    font-size:28px;
-    margin-top:30px;
-    margin-bottom:20px;
-    color:white;
+.btn {
+    background: linear-gradient(90deg,#00c6ff,#0072ff);
+    padding: 10px 25px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# --- HERO SECTION ---
-st.markdown("""
-<div class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-text">
-        <h1>Welcome to Alpha Studio & Shop</h1>
-        <p>Your hub for professional video production and gear</p>
-        <a href="#" class="btn">Explore Films</a>
-        <a href="#" class="btn">Visit Shop</a>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+# --- Header ---
+st.markdown('<div class="title">⚡ Alpha Studio</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Create the Future with Alpha AI</div>', unsafe_allow_html=True)
 
-# --- FEATURED SECTION ---
-st.markdown('<div class="section-title">Featured Films & Videos</div>', unsafe_allow_html=True)
-
+# --- Cards Layout ---
 col1, col2, col3 = st.columns(3)
 
-def film_card(title, img):
-    return f"""
-    <div class="card">
-        <img src="{img}">
-        <div class="card-body">
-            <h4>{title}</h4>
-        </div>
-    </div>
-    """
-
+# --- AI Tools ---
 with col1:
-    st.markdown(film_card("Action Short",
-    "https://images.unsplash.com/photo-1505685296765-3a2736de412f"), unsafe_allow_html=True)
+    st.markdown("""
+    <div class="card">
+        <h2>🧠 AI Tools Hub</h2>
+        <p>Text generation, ideas, coding help & more</p>
+        <a class="btn">Explore</a>
+    </div>
+    """, unsafe_allow_html=True)
 
+# --- Alpha AI (CLICKABLE LINK) ---
 with col2:
-    st.markdown(film_card("Music Video",
-    "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4"), unsafe_allow_html=True)
+    st.markdown("""
+    <a href="https://alpha-ai-dibjvtzmag2vhb8a4knhdh.streamlit.app/" target="_blank">
+    <div class="card">
+        <h2>🤖 Alpha AI</h2>
+        <p>Your smart AI assistant for chat, coding, and creation</p>
+        <div class="btn">Open Alpha AI</div>
+    </div>
+    </a>
+    """, unsafe_allow_html=True)
 
+# --- Developer Tools ---
 with col3:
-    st.markdown(film_card("Drama Film",
-    "https://images.unsplash.com/photo-1497032205916-ac775f0649ae"), unsafe_allow_html=True)
+    st.markdown("""
+    <div class="card">
+        <h2>💻 Developer Zone</h2>
+        <p>Code, debug & build faster</p>
+        <a class="btn">Start</a>
+    </div>
+    """, unsafe_allow_html=True)
 
-# --- SERVICES ---
-st.markdown('<div class="section-title">Professional Services</div>', unsafe_allow_html=True)
+# --- About Section ---
+st.markdown("## 🚀 About Alpha Studio")
+st.write("""
+Alpha Studio is an all-in-one AI-powered creative platform designed to help users build, create, and innovate.
 
-col4, col5 = st.columns(2)
+It combines advanced AI tools, smart automation, and modern UI to give the best experience.
+""")
 
-with col4:
-    st.markdown(film_card("Video Production",
-    "https://images.unsplash.com/photo-1519183071298-a2962eadc59f"), unsafe_allow_html=True)
+# --- Features ---
+st.markdown("## 🎨 Features")
+st.write("""
+- 🧠 AI Tools Hub  
+- 🤖 Alpha AI Assistant  
+- 🎬 Creative Studio  
+- 💻 Developer Tools  
+- ☁️ Cloud Project Saving  
+""")
 
-with col5:
-    st.markdown(film_card("Editing & Post-Production",
-    "https://images.unsplash.com/photo-1485846234645-a62644f84728"), unsafe_allow_html=True)
+# --- Alpha AI Description ---
+st.markdown("## 🤖 Alpha AI")
+st.write("""
+Alpha AI is a powerful assistant that helps with chatting, coding, content creation, and problem-solving in real-time.
+""")
 
-# --- SHOP ---
-st.markdown('<div class="section-title">Shop for Gear & Accessories</div>', unsafe_allow_html=True)
+# --- Vision ---
+st.markdown("## 🌟 Vision")
+st.write("Make AI + Creativity available for everyone.")
 
-col6, col7 = st.columns(2)
-
-with col6:
-    st.markdown(film_card("Cameras",
-    "https://images.unsplash.com/photo-1516724562728-afc824a36e84"), unsafe_allow_html=True)
-
-with col7:
-    st.markdown(film_card("Accessories",
-    "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"), unsafe_allow_html=True)
-
-# --- FOOTER ---
-st.markdown("<center style='color:gray;margin-top:40px;'>© 2026 Alpha Studio</center>", unsafe_allow_html=True)
+# --- Footer ---
+st.markdown("---")
+st.markdown("© 2026 Alpha Studio | Powered by Alpha AI ⚡")
